@@ -31,11 +31,18 @@ class OwnersController < ApplicationController
   use Rack::MethodOverride
   patch '/owners/:id' do 
     @owner = Owner.find(params[:id])
+<<<<<<< HEAD
 
     @owner.update(params["owner"])
     if !params["pet"]["name"].empty?
       @owner.pets << Pet.create(name: params["pet"]["name"])
     end
+=======
+    @owner.update(params[:owner])
+      if !params["pet"]["name"].empty?
+    @owner.pets << Pet.create(name: params["pet"]["name"])
+      end
+>>>>>>> b89e4163fff2f3934c0a8abc097469814cbb1b5a
     redirect to "owners/#{@owner.id}"
   end
 end
